@@ -61,9 +61,12 @@ class EndPointTest: XCTestCase {
 
 struct Endpoint {
     var url: URL? {
-        let query = queryItems.map { "\($0.key)=\($0.value)" }.joined(separator: "&")
-        let url = URL(string: "https://\(host)\(path)?\(query)")
-        return url
+        var urlcomponents = URLComponents()
+        urlcomponents.scheme = "https"
+        urlcomponents.host = host
+        urlcomponents.path = path
+        urlcomponents.queryItems = queryItems.map { URLQueryItem(name: $0.key, value: $0.value) }
+        return urlcomponents.url
     }
     let host: String
     var path: String = ""
