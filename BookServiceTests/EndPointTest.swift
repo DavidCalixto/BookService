@@ -29,6 +29,11 @@ class EndPointTest: XCTestCase {
         XCTAssertEqual(path, sut.url?.path, "Paths shold be equals")
     }
     
+    func assertValidQuery(_ queryItems: [String : String]) {
+        let query = queryItems.map { "\($0.key)=\($0.value)" }.joined(separator: "&")
+        XCTAssertEqual(query, sut.url?.query, "Paths shold be equals")
+    }
+    
     func testEndpoint_has_a_validUrl() {
         assertValidURL(sut.url)
     }
@@ -38,16 +43,23 @@ class EndPointTest: XCTestCase {
         sut.path = path
         assertValidPath(path)
     }
+    
+    func testGivenParameters_should_addedAsQuery() {
+        let queryItems = ["hola": "Mundo"]
+        sut.queryItems = queryItems
+        assertValidQuery(queryItems)
+    }
 }
 
 struct Endpoint {
     var url: URL? {
-        let url = URL(string: "http://\(host)\(path)")
-        
+        let query = queryItems.map { "\($0.key)=\($0.value)" }.joined(separator: "&")
+        let url = URL(string: "http://\(host)\(path)?\(query)")
         return url
     }
     let host: String
     var path: String = ""
+    var queryItems: [String : String] = [:]
     init (_ host: String) {
         self.host = host
     }
