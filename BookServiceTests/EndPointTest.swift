@@ -20,13 +20,18 @@ class EndPointTest: XCTestCase {
         sut = nil
     }
     
+    func assertValidURL(_ url: URL?){
+        XCTAssertNotNil(url)
+    }
+    
     func testEndpoint_has_a_validUrl() {
-        XCTAssertNotNil(sut.url)
+        assertValidURL(sut.url)
     }
 }
 
 struct Endpoint {
-    var url: URL?
+    let url: URL?
+    
     init (_ url : URL?) {
         self.url = url
     }
