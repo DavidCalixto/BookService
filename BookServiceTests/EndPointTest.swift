@@ -13,7 +13,7 @@ class EndPointTest: XCTestCase {
     var sut: Endpoint!
     
     override func setUp() {
-        sut = Endpoint("www.google.com")
+        sut = Endpoint("www.googleapis.com")
     }
     
     override func tearDown() {
@@ -49,12 +49,20 @@ class EndPointTest: XCTestCase {
         sut.queryItems = queryItems
         assertValidQuery(queryItems)
     }
+    
+    func testIntegrationTest() {
+       
+        sut.path = "/books/v1/volumes"
+        sut.queryItems = ["q": "roberto"]
+        let urlString = "https://www.googleapis.com/books/v1/volumes?q=roberto"
+        XCTAssertEqual(sut.url?.absoluteString, urlString, "Url should contains path and query")
+    }
 }
 
 struct Endpoint {
     var url: URL? {
         let query = queryItems.map { "\($0.key)=\($0.value)" }.joined(separator: "&")
-        let url = URL(string: "http://\(host)\(path)?\(query)")
+        let url = URL(string: "https://\(host)\(path)?\(query)")
         return url
     }
     let host: String
