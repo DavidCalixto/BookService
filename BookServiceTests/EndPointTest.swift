@@ -13,14 +13,21 @@ class EndPointTest: XCTestCase {
     var sut: Endpoint!
     
     override func setUp() {
-        sut = Endpoint()
+        sut = Endpoint(URL(string: "http://www.google.com"))
     }
     
     override func tearDown() {
         sut = nil
     }
+    
+    func testEndpoint_has_a_validUrl() {
+        XCTAssertNotNil(sut.url)
+    }
 }
 
 struct Endpoint {
-    
+    var url: URL?
+    init (_ url : URL?) {
+        self.url = url
+    }
 }
