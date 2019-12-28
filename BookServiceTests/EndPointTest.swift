@@ -24,6 +24,11 @@ class EndPointTest: XCTestCase {
         XCTAssertNotNil(url)
     }
     
+    func assertValidPath(_ path: String) {
+        
+        XCTAssertEqual(path, sut.url?.path, "Paths shold be equals")
+    }
+    
     func testEndpoint_has_a_validUrl() {
         assertValidURL(sut.url)
     }
@@ -31,7 +36,7 @@ class EndPointTest: XCTestCase {
     func testGivenThePath_URL_should_addIt() {
         let path  = "/books/api"
         sut.path = path
-        XCTAssertEqual(path, sut.url?.path, "Paths shold be equals")
+        assertValidPath(path)
     }
 }
 
