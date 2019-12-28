@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		6378C68723B81B110020A960 /* Endpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6378C68623B81B110020A960 /* Endpoint.swift */; };
 		639C4E0823B7FE3B009C4F94 /* BookService.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 639C4DFE23B7FE3A009C4F94 /* BookService.framework */; };
 		639C4E0D23B7FE3B009C4F94 /* BookServiceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 639C4E0C23B7FE3B009C4F94 /* BookServiceTests.swift */; };
 		639C4E0F23B7FE3B009C4F94 /* BookService.h in Headers */ = {isa = PBXBuildFile; fileRef = 639C4E0123B7FE3A009C4F94 /* BookService.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -24,6 +25,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		6378C68623B81B110020A960 /* Endpoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Endpoint.swift; sourceTree = "<group>"; };
 		639C4DFE23B7FE3A009C4F94 /* BookService.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = BookService.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		639C4E0123B7FE3A009C4F94 /* BookService.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BookService.h; sourceTree = "<group>"; };
 		639C4E0223B7FE3A009C4F94 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -75,6 +77,7 @@
 			children = (
 				639C4E0123B7FE3A009C4F94 /* BookService.h */,
 				639C4E0223B7FE3A009C4F94 /* Info.plist */,
+				6378C68623B81B110020A960 /* Endpoint.swift */,
 			);
 			path = BookService;
 			sourceTree = "<group>";
@@ -151,6 +154,7 @@
 				TargetAttributes = {
 					639C4DFD23B7FE3A009C4F94 = {
 						CreatedOnToolsVersion = 11.1;
+						LastSwiftMigration = 1110;
 					};
 					639C4E0623B7FE3B009C4F94 = {
 						CreatedOnToolsVersion = 11.1;
@@ -198,6 +202,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6378C68723B81B110020A960 /* Endpoint.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -344,6 +349,7 @@
 		639C4E1323B7FE3B009C4F94 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Manual;
 				DEFINES_MODULE = YES;
 				DEVELOPMENT_TEAM = "";
@@ -362,6 +368,7 @@
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				"PROVISIONING_PROFILE_SPECIFIER[sdk=macosx*]" = "";
 				SKIP_INSTALL = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -370,6 +377,7 @@
 		639C4E1423B7FE3B009C4F94 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Manual;
 				DEFINES_MODULE = YES;
 				DEVELOPMENT_TEAM = "";
@@ -396,6 +404,7 @@
 		639C4E1623B7FE3B009C4F94 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = EL989ZAD3Q;
 				INFOPLIST_FILE = BookServiceTests/Info.plist;
@@ -414,6 +423,7 @@
 		639C4E1723B7FE3B009C4F94 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = EL989ZAD3Q;
 				INFOPLIST_FILE = BookServiceTests/Info.plist;

@@ -7,7 +7,7 @@
 //
 
 import XCTest
-
+@testable import BookService
 class EndPointTest: XCTestCase {
 
     var sut: Endpoint!
@@ -56,22 +56,5 @@ class EndPointTest: XCTestCase {
         sut.queryItems = ["q": "roberto"]
         let urlString = "https://www.googleapis.com/books/v1/volumes?q=roberto"
         XCTAssertEqual(sut.url?.absoluteString, urlString, "Url should contains path and query")
-    }
-}
-
-struct Endpoint {
-    var url: URL? {
-        var urlcomponents = URLComponents()
-        urlcomponents.scheme = "https"
-        urlcomponents.host = host
-        urlcomponents.path = path
-        urlcomponents.queryItems = queryItems.map { URLQueryItem(name: $0.key, value: $0.value) }
-        return urlcomponents.url
-    }
-    let host: String
-    var path: String = ""
-    var queryItems: [String : String] = [:]
-    init (_ host: String) {
-        self.host = host
     }
 }
