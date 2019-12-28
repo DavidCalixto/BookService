@@ -13,7 +13,7 @@ class EndPointTest: XCTestCase {
     var sut: Endpoint!
     
     override func setUp() {
-        sut = Endpoint(URL(string: "http://www.google.com"))
+        sut = Endpoint("www.google.com")
     }
     
     override func tearDown() {
@@ -33,12 +33,22 @@ class EndPointTest: XCTestCase {
         assertValidURL(sut.url)
     }
 
+    func testGivenThePath_URL_should_addIt() {
+        let path  = "/books/api"
+        sut.path = path
+        XCTAssertEqual(path, sut.url?.path, "Paths shold be equals")
+    }
 }
 
 struct Endpoint {
-    let url: URL?
+    var url: URL? {
+        let url = URL(string: "http://\(host)\(path)")
+        
+        return url
+    }
+    let host: String
     var path: String = ""
-    init (_ url : URL?) {
-        self.url = url
+    init (_ host: String) {
+        self.host = host
     }
 }
