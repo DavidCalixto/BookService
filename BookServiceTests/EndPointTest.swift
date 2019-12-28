@@ -27,11 +27,6 @@ class EndPointTest: XCTestCase {
     func testEndpoint_has_a_validUrl() {
         assertValidURL(sut.url)
     }
-    
-    func testadd_a_path_to_host() {
-        sut.path = "books/api"
-        assertValidURL(sut.url)
-    }
 
     func testGivenThePath_URL_should_addIt() {
         let path  = "/books/api"
