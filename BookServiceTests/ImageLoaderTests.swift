@@ -18,18 +18,21 @@ class ImageLoaderTest: XCTestCase {
     override func tearDown() {
         sut = nil
     }
-    
-    func testData_givenAnId_retriveData() {
-        let id = ""
-        sut.data(for: id).sink { data in
-            XCTAssertNotNil(data)
-        }
-        
-    }
+
     func testData_givenAnId_retriveNil() {
         let id = "nil"
         sut.data(for: id).sink { data in
             XCTAssertNil(data)
+        }
+        
+    }
+    
+    func testSave_givenDataAndId_saveData() {
+        let id = "notNil"
+        let dataFromBytes = Data([0x00, 0x01, 0x02, 0x03])
+        sut.save(dataFromBytes, for: id)
+        sut.data(for: id).sink { data in
+            XCTAssertEqual(dataFromBytes, data)
         }
         
     }
@@ -39,11 +42,12 @@ protocol ImageLoader: class {
     func data(for id: key) -> AnyPublisher<Data?, Never >
 }
 class InMemoryImageLoader: ImageLoader {
-    
+    var persistence: [String: Data] = [:]
+    func save(_ data: Data, for key: String) {
+        persistence[key] = data
+    }
     func data(for id: String) -> AnyPublisher<Data?, Never > {
-        if id == "nil" {
-            return Just(nil).eraseToAnyPublisher()
-        }
-        return Just(Data()).eraseToAnyPublisher()
+        let data = persistence[id]
+        return Just(data).eraseToAnyPublisher()
     }
 }
