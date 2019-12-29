@@ -11,7 +11,12 @@ enum BookCoverSize: Int {
     case small = 5
     case normal = 1
 }
-struct Endpoint {
+protocol Endpoint {
+    var host: String { get }
+    var path: String { get set }
+    var queryItems: [String: String] { get set }
+}
+extension Endpoint {
     var url: URL? {
         var urlcomponents = URLComponents()
         urlcomponents.scheme = "https"
@@ -20,25 +25,37 @@ struct Endpoint {
         urlcomponents.queryItems = queryItems.map { URLQueryItem(name: $0.key, value: $0.value) }
         return urlcomponents.url
     }
+    
+}
+struct BookEndpoint: Endpoint {
+    
     let host: String
     var path: String = ""
     var queryItems: [String : String] = [:]
+    
     init (_ host: String) {
         self.host = host
     }
-}
-extension Endpoint {
     static func bookSearch(_ query: String) -> URL?{
-        var endpoint = Endpoint("www.googleapis.com")
+        var endpoint = BookEndpoint("www.googleapis.com")
         endpoint.path = "/books/v1/volumes"
         endpoint.queryItems["q"] = query
         return endpoint.url
     }
 }
 
-extension Endpoint {
+struct ImageEndpoint: Endpoint {
+    
+    let host: String
+    var path: String = ""
+    var queryItems: [String : String] = [:]
+    
+    init (_ host: String) {
+        self.host = host
+    }
+    
     static func coverImageURL(_ idBook: String, coverSize: BookCoverSize = .small) -> URL?{
-        var endpoint = Endpoint("books.google.com")
+        var endpoint = ImageEndpoint("books.google.com")
         endpoint.path = "/books/content"
         endpoint.queryItems = [
             "printsec": "frontcover",

@@ -10,10 +10,10 @@ import XCTest
 @testable import BookService
 class EndPointTest: XCTestCase {
 
-    var sut: Endpoint!
+    var sut: BookEndpoint!
     
     override func setUp() {
-        sut = Endpoint("www.googleapis.com")
+        sut = BookEndpoint("www.googleapis.com")
     }
     
     override func tearDown() {
@@ -59,13 +59,13 @@ class EndPointTest: XCTestCase {
     }
     
     func testSearchBook_givenAQuery_should_returnAnAPIURL() {
-        let url = Endpoint.bookSearch("roberto")
+        let url = BookEndpoint.bookSearch("roberto")
         let urlString = "https://www.googleapis.com/books/v1/volumes?q=roberto"
         XCTAssertEqual(url?.absoluteString, urlString, "Urls should be equals")
     }
     
     func testImageBook_givenAnId_should_returnASmallImageURL() {
-        let imageUrl = Endpoint.coverImageURL("h_4j3eVHMkEC", coverSize: .normal)
+        let imageUrl = ImageEndpoint.coverImageURL("h_4j3eVHMkEC", coverSize: .normal)
         let urlString = "http://books.google.com/books/content?id=h_4j3eVHMkEC&printsec=frontcover&img=1&zoom=1&edge=curl&source=gbs_api"
         let imagequeryComponents = imageUrl?.query?.components(separatedBy: "&").sorted()
         let queryComponents = URL(string: urlString)?.query?.components(separatedBy: "&").sorted()
