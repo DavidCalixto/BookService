@@ -7,9 +7,19 @@
 //
 
 import XCTest
+
 class ImageLoaderTest: XCTestCase {
+    var sut: ImageLoader!
     
-    func testExample(){
-        
+    override func setUp() {
+        sut = ImageLoader()
     }
+    
+    override func tearDown() {
+        sut = nil
+    }
+}
+
+class ImageLoader {
+    
 }
