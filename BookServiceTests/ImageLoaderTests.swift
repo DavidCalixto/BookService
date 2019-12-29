@@ -9,10 +9,10 @@
 import XCTest
 import Combine
 class ImageLoaderTest: XCTestCase {
-    var sut: ImageLoader!
+    var sut: InMemoryImageLoader!
     
     override func setUp() {
-        sut = ImageLoader()
+        sut = InMemoryImageLoader()
     }
     
     override func tearDown() {
@@ -34,8 +34,11 @@ class ImageLoaderTest: XCTestCase {
         
     }
 }
-
-class ImageLoader {
+protocol ImageLoader: class {
+    associatedtype key: Hashable
+    func get(_ id: key) -> AnyPublisher<Data?, Never >
+}
+class InMemoryImageLoader: ImageLoader {
     
     func get(_ id: String) -> AnyPublisher<Data?, Never > {
         if id == "nil" {
