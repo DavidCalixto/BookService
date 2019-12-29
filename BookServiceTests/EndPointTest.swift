@@ -57,4 +57,19 @@ class EndPointTest: XCTestCase {
         let urlString = "https://www.googleapis.com/books/v1/volumes?q=roberto"
         XCTAssertEqual(sut.url?.absoluteString, urlString, "Url should contains path and query")
     }
+    
+    func testSearchBook_givenAQuery_should_returnAnAPIURL() {
+        let url = Endpoint.bookSearch("roberto")
+        let urlString = "https://www.googleapis.com/books/v1/volumes?q=roberto"
+        XCTAssertEqual(url?.absoluteString, urlString, "Urls should be equals")
+    }
+    
+    func testImageBook_givenAnId_should_returnASmallImageURL() {
+        let imageUrl = Endpoint.coverImageURL("h_4j3eVHMkEC")
+        let urlString = "http://books.google.com/books/content?id=h_4j3eVHMkEC&printsec=frontcover&img=1&zoom=5&edge=curl&source=gbs_api"
+        let imagequeryComponents = imageUrl?.query?.components(separatedBy: "&").sorted()
+        let queryComponents = URL(string: urlString)?.query?.components(separatedBy: "&").sorted()
+        
+        XCTAssertEqual(imagequeryComponents, queryComponents, "Urls should be equals")
+    }
 }

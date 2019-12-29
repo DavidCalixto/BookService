@@ -23,3 +23,26 @@ struct Endpoint {
         self.host = host
     }
 }
+extension Endpoint {
+    static func bookSearch(_ query: String) -> URL?{
+        var endpoint = Endpoint("www.googleapis.com")
+        endpoint.path = "/books/v1/volumes"
+        endpoint.queryItems["q"] = query
+        return endpoint.url
+    }
+}
+
+extension Endpoint {
+    static func coverImageURL(_ idBook: String) -> URL?{
+        var endpoint = Endpoint("books.google.com")
+        endpoint.path = "/books/content"
+        endpoint.queryItems = [
+            "printsec": "frontcover",
+            "img": "1",
+            "zoom": "5",
+            "edge": "curl",
+            "source": "gbs_api"]
+        endpoint.queryItems["id"] = idBook
+        return endpoint.url
+    }
+}
