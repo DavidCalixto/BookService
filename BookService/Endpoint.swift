@@ -52,17 +52,17 @@ struct ImageEndpoint: Endpoint {
     
     init (_ host: String) {
         self.host = host
+        self.queryItems = [
+        "printsec": "frontcover",
+        "img": "1",
+        "edge": "curl",
+        "source": "gbs_api"]
     }
     
     static func cover(for idBook: String, coverSize: BookCoverSize = .small) -> Endpoint{
         var endpoint = ImageEndpoint("books.google.com")
         endpoint.path = "/books/content"
-        endpoint.queryItems = [
-            "printsec": "frontcover",
-            "img": "1",
-            "zoom": "\(coverSize.rawValue)",
-            "edge": "curl",
-            "source": "gbs_api"]
+        endpoint.queryItems["zoom"] = "\(coverSize.rawValue)"
         endpoint.queryItems["id"] = idBook
         return endpoint
     }
