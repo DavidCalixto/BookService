@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		6378C68723B81B110020A960 /* Endpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6378C68623B81B110020A960 /* Endpoint.swift */; };
 		6378C68923B827370020A960 /* ImageLoaderTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6378C68823B827370020A960 /* ImageLoaderTests.swift */; };
+		6378C68B23B8495F0020A960 /* ImageLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6378C68A23B8495F0020A960 /* ImageLoader.swift */; };
+		6378C68D23B8497D0020A960 /* InMemoryImageLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6378C68C23B8497D0020A960 /* InMemoryImageLoader.swift */; };
 		639C4E0823B7FE3B009C4F94 /* BookService.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 639C4DFE23B7FE3A009C4F94 /* BookService.framework */; };
 		639C4E0D23B7FE3B009C4F94 /* BookServiceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 639C4E0C23B7FE3B009C4F94 /* BookServiceTests.swift */; };
 		639C4E0F23B7FE3B009C4F94 /* BookService.h in Headers */ = {isa = PBXBuildFile; fileRef = 639C4E0123B7FE3A009C4F94 /* BookService.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -28,6 +30,8 @@
 /* Begin PBXFileReference section */
 		6378C68623B81B110020A960 /* Endpoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Endpoint.swift; sourceTree = "<group>"; };
 		6378C68823B827370020A960 /* ImageLoaderTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageLoaderTests.swift; sourceTree = "<group>"; };
+		6378C68A23B8495F0020A960 /* ImageLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageLoader.swift; sourceTree = "<group>"; };
+		6378C68C23B8497D0020A960 /* InMemoryImageLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InMemoryImageLoader.swift; sourceTree = "<group>"; };
 		639C4DFE23B7FE3A009C4F94 /* BookService.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = BookService.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		639C4E0123B7FE3A009C4F94 /* BookService.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BookService.h; sourceTree = "<group>"; };
 		639C4E0223B7FE3A009C4F94 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -80,6 +84,8 @@
 				639C4E0123B7FE3A009C4F94 /* BookService.h */,
 				639C4E0223B7FE3A009C4F94 /* Info.plist */,
 				6378C68623B81B110020A960 /* Endpoint.swift */,
+				6378C68A23B8495F0020A960 /* ImageLoader.swift */,
+				6378C68C23B8497D0020A960 /* InMemoryImageLoader.swift */,
 			);
 			path = BookService;
 			sourceTree = "<group>";
@@ -205,6 +211,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6378C68D23B8497D0020A960 /* InMemoryImageLoader.swift in Sources */,
+				6378C68B23B8495F0020A960 /* ImageLoader.swift in Sources */,
 				6378C68723B81B110020A960 /* Endpoint.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
