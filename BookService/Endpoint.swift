@@ -54,7 +54,7 @@ struct ImageEndpoint: Endpoint {
         self.host = host
     }
     
-    static func coverImageURL(_ idBook: String, coverSize: BookCoverSize = .small) -> URL?{
+    static func cover(for idBook: String, coverSize: BookCoverSize = .small) -> Endpoint{
         var endpoint = ImageEndpoint("books.google.com")
         endpoint.path = "/books/content"
         endpoint.queryItems = [
@@ -64,6 +64,6 @@ struct ImageEndpoint: Endpoint {
             "edge": "curl",
             "source": "gbs_api"]
         endpoint.queryItems["id"] = idBook
-        return endpoint.url
+        return endpoint
     }
 }
