@@ -65,8 +65,8 @@ class EndPointTest: XCTestCase {
     }
     
     func testImageBook_givenAnId_should_returnASmallImageURL() {
-        let imageUrl = Endpoint.coverImageURL("h_4j3eVHMkEC")
-        let urlString = "http://books.google.com/books/content?id=h_4j3eVHMkEC&printsec=frontcover&img=1&zoom=5&edge=curl&source=gbs_api"
+        let imageUrl = Endpoint.coverImageURL("h_4j3eVHMkEC", coverSize: .normal)
+        let urlString = "http://books.google.com/books/content?id=h_4j3eVHMkEC&printsec=frontcover&img=1&zoom=1&edge=curl&source=gbs_api"
         let imagequeryComponents = imageUrl?.query?.components(separatedBy: "&").sorted()
         let queryComponents = URL(string: urlString)?.query?.components(separatedBy: "&").sorted()
         

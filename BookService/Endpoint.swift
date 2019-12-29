@@ -7,6 +7,10 @@
 //
 
 import Foundation
+enum BookCoverSize: Int {
+    case small = 5
+    case normal = 1
+}
 struct Endpoint {
     var url: URL? {
         var urlcomponents = URLComponents()
@@ -33,13 +37,13 @@ extension Endpoint {
 }
 
 extension Endpoint {
-    static func coverImageURL(_ idBook: String) -> URL?{
+    static func coverImageURL(_ idBook: String, coverSize: BookCoverSize = .small) -> URL?{
         var endpoint = Endpoint("books.google.com")
         endpoint.path = "/books/content"
         endpoint.queryItems = [
             "printsec": "frontcover",
             "img": "1",
-            "zoom": "5",
+            "zoom": "\(coverSize.rawValue)",
             "edge": "curl",
             "source": "gbs_api"]
         endpoint.queryItems["id"] = idBook
