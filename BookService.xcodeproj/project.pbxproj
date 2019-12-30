@@ -21,6 +21,7 @@
 		63FB587723B9D6CF003DF445 /* BookImageLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63FB587623B9D6CF003DF445 /* BookImageLoader.swift */; };
 		63FB587923B9D7F5003DF445 /* BookSearcherTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63FB587823B9D7F5003DF445 /* BookSearcherTests.swift */; };
 		63FB587B23BA4E4B003DF445 /* BookSearcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63FB587A23BA4E4B003DF445 /* BookSearcher.swift */; };
+		63FB587D23BA4EF4003DF445 /* BooksAPITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63FB587C23BA4EF4003DF445 /* BooksAPITests.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -51,6 +52,7 @@
 		63FB587623B9D6CF003DF445 /* BookImageLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookImageLoader.swift; sourceTree = "<group>"; };
 		63FB587823B9D7F5003DF445 /* BookSearcherTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookSearcherTests.swift; sourceTree = "<group>"; };
 		63FB587A23BA4E4B003DF445 /* BookSearcher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookSearcher.swift; sourceTree = "<group>"; };
+		63FB587C23BA4EF4003DF445 /* BooksAPITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BooksAPITests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -115,6 +117,7 @@
 				6378C68E23B953BF0020A960 /* RemoteImageLoaderTests.swift */,
 				63FB587423B9921C003DF445 /* BookImageLoaderTest.swift */,
 				63FB587823B9D7F5003DF445 /* BookSearcherTests.swift */,
+				63FB587C23BA4EF4003DF445 /* BooksAPITests.swift */,
 			);
 			path = BookServiceTests;
 			sourceTree = "<group>";
@@ -247,6 +250,7 @@
 				639C4E1923B7FECE009C4F94 /* EndPointTest.swift in Sources */,
 				639C4E0D23B7FE3B009C4F94 /* BookServiceTests.swift in Sources */,
 				6378C68923B827370020A960 /* ImageLoaderTests.swift in Sources */,
+				63FB587D23BA4EF4003DF445 /* BooksAPITests.swift in Sources */,
 				63FB587923B9D7F5003DF445 /* BookSearcherTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
