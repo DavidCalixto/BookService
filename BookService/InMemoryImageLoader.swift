@@ -9,12 +9,10 @@
 import Foundation
 import Combine
 final class InMemoryImageLoader: ImageLoader {
+    
     typealias key = String
-    
     typealias ErrorType = Never
-    
     typealias PublisherType = AnyPublisher<Data?, Never >
-    
     
     private var persistence: ImageCache = ImageCache()
     

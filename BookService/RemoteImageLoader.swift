@@ -8,8 +8,7 @@
 
 import Foundation
 final class RemoteImageLoader: ImageLoader {
-   
-
+    
     typealias key = String
     typealias ErrorType = URLError
     typealias PublisherType = URLSession.DataTaskPublisher
@@ -26,22 +25,21 @@ final class RemoteImageLoader: ImageLoader {
         return getDataTaskPublisher()
     }
   
-    
-    func configImageBookURL( for id: key, coverSize: BookCoverSize = .small) {
-        endpoint.queryItems = [
-        "printsec": "frontcover",
-        "img": "1",
-        "edge": "curl",
-        "source": "gbs_api"]
-        endpoint.path = "/books/content"
-        endpoint.queryItems["zoom"] = "\(coverSize.rawValue)"
-        endpoint.queryItems["id"] = id
+        func configImageBookURL( for id: key, coverSize: BookCoverSize = .small) {
+            endpoint.queryItems = [
+            "printsec": "frontcover",
+            "img": "1",
+            "edge": "curl",
+            "source": "gbs_api"]
+            endpoint.path = "/books/content"
+            endpoint.queryItems["zoom"] = "\(coverSize.rawValue)"
+            endpoint.queryItems["id"] = id
+            
+        }
         
-    }
-    
-    private func getDataTaskPublisher() -> URLSession.DataTaskPublisher {
-        guard let url = endpoint.url else { fatalError("URLs cannot be created")}
-        return URLSession.shared.dataTaskPublisher(for: url)
-    }
+            private func getDataTaskPublisher() -> URLSession.DataTaskPublisher {
+                guard let url = endpoint.url else { fatalError("URLs cannot be created")}
+                return URLSession.shared.dataTaskPublisher(for: url)
+            }
 }
 
