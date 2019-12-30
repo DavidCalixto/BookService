@@ -60,8 +60,11 @@ class EndPointTest: XCTestCase {
     
     func testSearchBook_givenAQuery_should_returnAnAPIURL() {
         let url = BookEndpoint.bookSearch("roberto")
-        let urlString = "https://www.googleapis.com/books/v1/volumes?q=roberto"
-        XCTAssertEqual(url?.absoluteString, urlString, "Urls should be equals")
+        let urlString = "https://www.googleapis.com/books/v1/volumes?q=roberto&orderBy=relevance"
+        let urlqueryComponents = url?.query?.components(separatedBy: "&").sorted()
+        let queryComponents = URL(string: urlString)?.query?.components(separatedBy: "&").sorted()
+        
+        XCTAssertEqual(urlqueryComponents, queryComponents, "Urls should be equals")
     }
     
     func testImageBook_givenAnId_should_returnASmallImageURL() {

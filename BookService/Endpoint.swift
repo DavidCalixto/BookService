@@ -40,6 +40,7 @@ struct BookEndpoint: Endpoint {
         var endpoint = BookEndpoint("www.googleapis.com")
         endpoint.path = "/books/v1/volumes"
         endpoint.queryItems["q"] = query
+        endpoint.queryItems["orderBy"] = "relevance"
         return endpoint.url
     }
 }
