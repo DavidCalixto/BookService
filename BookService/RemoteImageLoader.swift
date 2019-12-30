@@ -22,13 +22,21 @@ final class RemoteImageLoader: ImageLoader {
     }
     
     func data(for id: key) -> PublisherType {
-        setBookID(id)
+        configImageBookURL(for: id)
         return getDataTaskPublisher()
     }
+  
     
-    private func setBookID(_ id: key){
-        endpoint.queryItems["zoom"] = "\(BookCoverSize.small.rawValue)"
+    func configImageBookURL( for id: key, coverSize: BookCoverSize = .small) {
+        endpoint.queryItems = [
+        "printsec": "frontcover",
+        "img": "1",
+        "edge": "curl",
+        "source": "gbs_api"]
+        endpoint.path = "/books/content"
+        endpoint.queryItems["zoom"] = "\(coverSize.rawValue)"
         endpoint.queryItems["id"] = id
+        
     }
     
     private func getDataTaskPublisher() -> URLSession.DataTaskPublisher {
