@@ -22,7 +22,7 @@ class ImageLoaderTest: XCTestCase {
 
     func testData_givenAnId_retriveNil() {
         let id = "nil"
-        sut.data(for: id).sink { data in
+        let  _ = sut.data(for: id).sink { data in
             XCTAssertNil(data)
         }
         
@@ -32,7 +32,7 @@ class ImageLoaderTest: XCTestCase {
         let id = "notNil"
         let dataFromBytes = Data([0x00, 0x01, 0x02, 0x03])
         sut.save(dataFromBytes, for: id)
-        sut.data(for: id).sink { data in
+       let _ =  sut.data(for: id).sink { data in
             XCTAssertEqual(dataFromBytes, data)
         }
         

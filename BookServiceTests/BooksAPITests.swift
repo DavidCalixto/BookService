@@ -45,10 +45,12 @@ class BooksAPITests: XCTestCase {
     
     func assertHasImageData(for id: String) {
         let expectation = XCTestExpectation()
-        let cancelable = sut.data(for: id).sink { (data) in
+         var cancelables: [AnyCancellable] = []
+        let cancellable = sut.data(for: id).sink { (data) in
             expectation.fulfill()
             XCTAssertTrue(data?.count ?? 0 > 0 )
         }
+        cancellable.store(in: &cancelables)
         wait(for: [expectation], timeout: 5)
     }
     
@@ -56,28 +58,3 @@ class BooksAPITests: XCTestCase {
         assertHasImageData(for: "h_4j3eVHMkEC")
     }
 }
-
-final public class BooksAPI {
-    
-    public typealias key = String
-    public typealias ErrorType = Never
-    public typealias PublisherType = AnyPublisher<Data?, ErrorType>
-    
-    let searcher = BookSearcher()
-    let imageLoader = BookImageLoader.make()
-}
-extension BooksAPI: APICallable {
-    
-    public func searh(_ query: String) -> AnyPublisher<Data, APIError> {
-        return searcher.searh(query)
-    }
-}
-
-extension BooksAPI: ImageLoader {
-    
-    public func data(for id: String) -> AnyPublisher<Data?, BooksAPI.ErrorType> {
-        return imageLoader.data(for: id)
-    }
-}
-
-

@@ -24,10 +24,12 @@ class BookImageLoaderTest: XCTestCase {
     
     func assertHasImageData(for id: String) {
         let expectation = XCTestExpectation()
-        let cancelable = sut.data(for: id).sink { (data) in
+        var cancellables: [AnyCancellable] = []
+        let cancellable = sut.data(for: id).sink { (data) in
             expectation.fulfill()
             XCTAssertTrue(data?.count ?? 0 > 0 )
         }
+        cancellable.store(in: &cancellables)
         wait(for: [expectation], timeout: 5)
     }
     
