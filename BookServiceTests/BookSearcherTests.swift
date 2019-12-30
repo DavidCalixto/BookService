@@ -21,12 +21,6 @@ class BookSearcherTests: XCTestCase {
         sut = nil
     }
     
-    func testCanHandleAQuery(){
-        sut.searh("")
-    }
-    
-    
-    
     func testGivenAQuery_should_callRemoteAPI() {
         
         let expectation = XCTestExpectation()
