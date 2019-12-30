@@ -9,6 +9,12 @@
 import Foundation
 import Combine
 final class InMemoryImageLoader: ImageLoader {
+    typealias key = String
+    
+    typealias ErrorType = Never
+    
+    typealias PublisherType = AnyPublisher<Data?, Never >
+    
     
     private var persistence: ImageCache = ImageCache()
     
@@ -16,7 +22,7 @@ final class InMemoryImageLoader: ImageLoader {
         persistence[key] = data
     }
     
-    func data(for id: String) -> AnyPublisher<Data?, Never > {
+    func data(for id: String) -> PublisherType {
         let data = persistence[id]
         return Just(data).eraseToAnyPublisher()
     }

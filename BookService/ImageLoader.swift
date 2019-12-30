@@ -11,5 +11,7 @@ import Combine
 
 protocol ImageLoader: class {
     associatedtype key: Hashable
-    func data(for id: key) -> AnyPublisher<Data?, Never >
+    associatedtype ErrorType: Error
+    associatedtype PublisherType: Publisher
+    func data(for id: key) -> PublisherType
 }
