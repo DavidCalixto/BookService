@@ -8,11 +8,11 @@
 
 import Foundation
 import Combine
-enum APIError: Error {
+public enum APIError: Error {
     case noService
     case noData
 }
-protocol APICallable: class {
+public protocol APICallable: class {
     func searh(_ query: String) -> AnyPublisher<Data, APIError>
 }
 final class BookSearcher: APICallable {
