@@ -12,13 +12,15 @@ enum APIError: Error {
     case noService
     case noData
 }
-
-class BookSearcher {
+protocol APICallable: class {
+    func searh(_ query: String) -> AnyPublisher<Data, APIError>
+}
+final class BookSearcher: APICallable {
 
     func searh(_ query: String) -> AnyPublisher<Data, APIError> {
         return getRemotePublisher(query)
     }
-        func getRemotePublisher(_  query: String) -> AnyPublisher< Data, APIError> {
+       fileprivate func getRemotePublisher(_  query: String) -> AnyPublisher< Data, APIError> {
             guard let url = BookEndpoint.bookSearch(query) else { fatalError("URLs cannot be created") }
             return dataTaskPublisher(url)
         }
