@@ -36,25 +36,27 @@ final class BookImageLoader: ImageLoader {
         return getLocalOrRemoteData(for: id)
     }
     
-    private func getRemoteImage( for id: key) -> PublisherType {
-        let cancelable = remoteImageLoader.data(for: id).map {
-            self.saveImageData($0.data, for: id)
-            return $0.data
-        }.catch { (error) -> Just<Data?> in
-            return Just<Data?>(nil)
-        }
-        return cancelable.eraseToAnyPublisher()
-    }
-    
-    private func getLocalOrRemoteData(for id: key) -> PublisherType {
-        let cancelable = localImageLoader.data(for: id).flatMap { (data) -> PublisherType in
-            if data == nil {  return self.getRemoteImage(for: id) }
-            return Just<Data?>(data).eraseToAnyPublisher()
-        }
+        private func getLocalOrRemoteData(for id: key) -> PublisherType {
+               let cancelable = localImageLoader.data(for: id)
+                .flatMap {[unowned self] (data) -> PublisherType in
+                   if data == nil {  return self.getRemoteImage(for: id) }
+                   return Just<Data?>(data).eraseToAnyPublisher()
+               }
+               return cancelable.eraseToAnyPublisher()
+           }
         
-        return cancelable.eraseToAnyPublisher()
-    }
-    private func saveImageData(_ data: Data, for id: key){
-        localImageLoader.save(data, for: id)
-    }
+            private func getRemoteImage( for id: key) -> PublisherType {
+                let cancelable = remoteImageLoader.data(for: id)
+                    .map { [unowned self] in
+                    self.saveImageData($0.data, for: id)
+                    return $0.data }
+                    .catch { (error) -> Just<Data?> in
+                        return Just<Data?>(nil)
+                    }
+                return cancelable.eraseToAnyPublisher()
+            }
+        
+                private func saveImageData(_ data: Data, for id: key){
+                    localImageLoader.save(data, for: id)
+                }
 }
