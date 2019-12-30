@@ -99,12 +99,7 @@
 			children = (
 				639C4E0123B7FE3A009C4F94 /* BookService.h */,
 				639C4E0223B7FE3A009C4F94 /* Info.plist */,
-				6378C68623B81B110020A960 /* Endpoint.swift */,
-				6378C68A23B8495F0020A960 /* ImageLoader.swift */,
-				6378C68C23B8497D0020A960 /* InMemoryImageLoader.swift */,
-				63FB587223B98DAD003DF445 /* RemoteImageLoader.swift */,
-				63FB587623B9D6CF003DF445 /* BookImageLoader.swift */,
-				63FB587A23BA4E4B003DF445 /* BookSearcher.swift */,
+				63FB588023BA5FB6003DF445 /* API */,
 				63FB587E23BA5DEF003DF445 /* BooksAPI.swift */,
 			);
 			path = BookService;
@@ -123,6 +118,19 @@
 				63FB587C23BA4EF4003DF445 /* BooksAPITests.swift */,
 			);
 			path = BookServiceTests;
+			sourceTree = "<group>";
+		};
+		63FB588023BA5FB6003DF445 /* API */ = {
+			isa = PBXGroup;
+			children = (
+				6378C68623B81B110020A960 /* Endpoint.swift */,
+				6378C68A23B8495F0020A960 /* ImageLoader.swift */,
+				6378C68C23B8497D0020A960 /* InMemoryImageLoader.swift */,
+				63FB587223B98DAD003DF445 /* RemoteImageLoader.swift */,
+				63FB587623B9D6CF003DF445 /* BookImageLoader.swift */,
+				63FB587A23BA4E4B003DF445 /* BookSearcher.swift */,
+			);
+			path = API;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
