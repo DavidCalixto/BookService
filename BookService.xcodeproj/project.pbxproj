@@ -20,6 +20,7 @@
 		63FB587523B9921C003DF445 /* BookImageLoaderTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63FB587423B9921C003DF445 /* BookImageLoaderTest.swift */; };
 		63FB587723B9D6CF003DF445 /* BookImageLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63FB587623B9D6CF003DF445 /* BookImageLoader.swift */; };
 		63FB587923B9D7F5003DF445 /* BookSearcherTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63FB587823B9D7F5003DF445 /* BookSearcherTests.swift */; };
+		63FB587B23BA4E4B003DF445 /* BookSearcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63FB587A23BA4E4B003DF445 /* BookSearcher.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -49,6 +50,7 @@
 		63FB587423B9921C003DF445 /* BookImageLoaderTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookImageLoaderTest.swift; sourceTree = "<group>"; };
 		63FB587623B9D6CF003DF445 /* BookImageLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookImageLoader.swift; sourceTree = "<group>"; };
 		63FB587823B9D7F5003DF445 /* BookSearcherTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookSearcherTests.swift; sourceTree = "<group>"; };
+		63FB587A23BA4E4B003DF445 /* BookSearcher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookSearcher.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -98,6 +100,7 @@
 				6378C68C23B8497D0020A960 /* InMemoryImageLoader.swift */,
 				63FB587223B98DAD003DF445 /* RemoteImageLoader.swift */,
 				63FB587623B9D6CF003DF445 /* BookImageLoader.swift */,
+				63FB587A23BA4E4B003DF445 /* BookSearcher.swift */,
 			);
 			path = BookService;
 			sourceTree = "<group>";
@@ -231,6 +234,7 @@
 				6378C68D23B8497D0020A960 /* InMemoryImageLoader.swift in Sources */,
 				6378C68B23B8495F0020A960 /* ImageLoader.swift in Sources */,
 				6378C68723B81B110020A960 /* Endpoint.swift in Sources */,
+				63FB587B23BA4E4B003DF445 /* BookSearcher.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
