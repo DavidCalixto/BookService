@@ -16,6 +16,7 @@ final public class BooksAPI {
     
     let searcher = BookSearcher()
     let imageLoader = BookImageLoader.make()
+    public init() { }
 }
 extension BooksAPI: APICallable {
     
